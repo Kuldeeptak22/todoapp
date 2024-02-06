@@ -4,7 +4,8 @@
   "description": "this is a todo app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon --exec babel-node index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,15 @@
   "bugs": {
     "url": "https://github.com/Kuldeeptak22/todoapp/issues"
   },
-  "homepage": "https://github.com/Kuldeeptak22/todoapp#readme"
+  "homepage": "https://github.com/Kuldeeptak22/todoapp#readme",
+  "dependencies": {
+    "@babel/cli": "^7.23.9",
+    "@babel/core": "^7.23.9",
+    "@babel/node": "^7.23.9",
+    "@babel/preset-env": "^7.23.9",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "mongoose": "^8.1.1",
+    "nodemon": "^3.0.3"
+  }
 }
