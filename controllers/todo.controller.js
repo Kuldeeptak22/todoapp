@@ -40,4 +40,48 @@ export const getToDosApi = async (req, res) => {
   }
 };
 
+export const getTodoApi = async (req, res) => {
+  try {
+    const todoID = req.params.todo_id;
+    const todoData = await TodoModel.findOne({ status: 1, _id: todoID });
+    if (todoData) {
+      return res.status(200).json({
+        data: todoData,
+        message: "Item fetched Successfully...!",
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+};
 
+export const updateTodoApi = async (req, res) => {
+  try {
+    const todoID = req.params.todo_id;
+    const { name, description } = req.body;
+
+    const updateTodoData = await TodoModel.updateOne(
+      {
+        _id: todoID,
+      },
+      {
+        $set: {
+          name,
+          description,
+        },
+      }
+    );
+
+    if (updateTodoData.matchedCount) {
+      return res.status(200).json({
+        message: "Item has been Successfully Updated..!.",
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+};
