@@ -85,3 +85,43 @@ export const updateTodoApi = async (req, res) => {
     });
   }
 };
+
+export const deleteTodoApi = async (req, res) => {
+  try {
+    const todoID = req.params.todo_id;
+
+    const deletedTodo = await TodoModel.updateOne(
+      { _id: todoID },
+      {
+        $set: {
+          status: 0,
+        },
+      }
+    );
+    if (deletedTodo.acknowledged) {
+      return res.status(200).json({
+        message: "Item has been Successfully Deleted..!",
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+};
+
+export const removeTodoApi = async (req, res) => {
+  try {
+    const todoID = req.params.todo_id;
+    const removedData = await TodoModel.deleteOne({ _id: todoID });
+    if (removedData.acknowledged) {
+      return res.status(200).json({
+        message: "Item has been Successfully Updated..!",
+      });
+    }
+  } catch (error) {
+    return res.status(500).json({
+      message: error.message,
+    });
+  }
+};
