@@ -1,4 +1,6 @@
 import express from "express";
+import dotenv from "dotenv";
+dotenv.config();
 import cors from "cors";
 import mongoose from "mongoose";
 import todoRouter from "./routers/todo.router";
@@ -7,7 +9,7 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-const port = 6300;
+const PORT = process.env.PORT || 8080;
 
 app.get("/", (req, res) => {
   res.send("This is Home page");
@@ -20,8 +22,8 @@ mongoose
   })
   .catch((error) => console.log(error));
 
-app.listen(port, () => {
-  console.log("Server is Running on port http://localhost:" + port);
+app.listen(PORT, () => {
+  console.log("Server is Running on port http://localhost:" + PORT);
 });
 
 app.use("/todos", todoRouter);
