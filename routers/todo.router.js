@@ -6,7 +6,7 @@ import {
   getTodoApi,
   removeTodoApi,
   updateTodoApi,
-} from "../controllers/todo.controller";
+} from "../controllers/todo.controller.js";
 
 const router = express.Router();
 router.post("/add_todo", addTodoApi);

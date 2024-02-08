@@ -1,4 +1,4 @@
-import TodoModel from "../models/todo.model";
+import TodoModel from "../models/todo.model.js";
 
 export const addTodoApi = (req, res) => {
   try {
