@@ -15,8 +15,9 @@ app.get("/", (req, res) => {
   res.send("This is Home page");
 });
 
+const DB = process.env.DATABASE;
 mongoose
-  .connect("mongodb://127.0.0.1:27017/todoList")
+  .connect(DB)
   .then(() => {
     console.log("DataBase Connected !!");
   })

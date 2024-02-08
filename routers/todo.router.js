@@ -1,5 +1,12 @@
 import express from "express";
-import { addTodoApi, deleteTodoApi, getToDosApi, getTodoApi, removeTodoApi, updateTodoApi } from "../controllers/todo.controller";
+import {
+  addTodoApi,
+  deleteTodoApi,
+  getToDosApi,
+  getTodoApi,
+  removeTodoApi,
+  updateTodoApi,
+} from "../controllers/todo.controller";
 
 const router = express.Router();
 router.post("/add_todo", addTodoApi);
